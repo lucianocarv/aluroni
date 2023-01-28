@@ -1,5 +1,8 @@
 import menu from '../../data/menu.json';
 import styles from './home.module.scss';
+import themeStyles from '../../styles/theme.module.scss';
+
+import ourHome from '../../assets/nossa_casa.png';
 
 export default function Home() {
   let recommendedDishes = [...menu];
@@ -7,7 +10,7 @@ export default function Home() {
 
   return (
     <section>
-      <h3 className={styles.title}>Recomendações da cozinha</h3>
+      <h3 className={themeStyles.title}>Recomendações da cozinha</h3>
       <div className={styles.recommendation}>
         {recommendedDishes.map((item) => (
           <div key={item.id} className={styles.recommended}>
@@ -17,6 +20,14 @@ export default function Home() {
             <button className={styles.recommended__button}>Ver Mais</button>
           </div>
         ))}
+      </div>
+      <h3 className={themeStyles.title}>Nossa casa</h3>
+      <div className={styles.ourHome}>
+        <img src={ourHome} alt='Casa do Aluroni' />
+        <div className={styles.ourHome__address}>
+          Rua Vergueiro, 3185 <br />
+          <br /> Vila Mariana - SP
+        </div>
       </div>
     </section>
   );
